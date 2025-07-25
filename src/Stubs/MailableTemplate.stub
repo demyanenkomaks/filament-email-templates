@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Mail\Maksde\EmailTemplates;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
+use Maksde\FilamentEmailTemplates\Traits\BuildGenericEmail;
+
+class {{className}} extends Mailable
+{
+    use Queueable;
+    use SerializesModels;
+    use BuildGenericEmail;
+
+    public string $template = '{{template-key}}';
+    public array $data;
+
+    /**
+     * Create a new message instance.
+     *
+     * @return void
+     */
+    public function __construct($data)
+    {
+        $this->data = $data;
+    }
+}

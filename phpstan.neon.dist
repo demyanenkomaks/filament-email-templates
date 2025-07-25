@@ -1,0 +1,14 @@
+includes:
+    - vendor/nesbot/carbon/extension.neon
+
+parameters:
+    level: 5
+
+    paths:
+        - config
+        - database
+        - resources
+        - src
+
+    excludePaths:
+        - src/Traits/BuildGenericEmail.php
