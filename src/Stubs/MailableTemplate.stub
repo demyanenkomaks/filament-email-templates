@@ -14,15 +14,13 @@ class {{className}} extends Mailable
     use BuildGenericEmail;
 
     public string $template = '{{template-key}}';
-    public array $data;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($data)
-    {
-        $this->data = $data;
-    }
+    public function __construct(
+        public array $data
+    ) {}
 }

@@ -12,6 +12,7 @@ return [
         'template-name-hint' => '(For admin view only)',
         'key' => 'Key',
         'key-hint' => '(Must be unique with language version)',
+        'key-update' => 'Update by template name',
         'language' => 'Language',
         'email-from' => 'Send Email From Email',
         'email-from-name' => 'Send Email From Name',

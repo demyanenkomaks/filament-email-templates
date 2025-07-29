@@ -9,7 +9,7 @@ use Maksde\FilamentEmailTemplates\Models\EmailTemplate;
 
 trait BuildGenericEmail
 {
-    public $emailtemplate;
+    public EmailTemplate $emailTemplate;
 
     /**
      * Build the message.
@@ -18,10 +18,8 @@ trait BuildGenericEmail
      */
     public function build()
     {
-        $this->emailTemplate = EmailTemplate::findEmailByKey($this->template, App::currentLocale());
-
-        if (! $this->emailTemplate) {
-            Log::warning(sprintf('Email template %s was not found.', $this->emailtemplate));
+        if (! $this->emailTemplate = EmailTemplate::findEmailByKey($this->template, App::currentLocale())) {
+            Log::warning(sprintf('Email template %s was not found.', $this->emailTemplate));
 
             return $this;
         }

@@ -6,6 +6,7 @@ use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Filament\Notifications\Notification;
 use Filament\Pages\SubNavigationPosition;
@@ -191,7 +192,15 @@ class EmailTemplateResource extends Resource
                                     modifyRuleUsing: function (Unique $rule, $get) {
                                         return $rule->where('language', $get('language'));
                                     })
-                                ->maxLength(255),
+                                ->maxLength(255)
+                                ->suffixActions([
+                                    \Filament\Forms\Components\Actions\Action::make('key-update')
+                                        ->label(__('md-filament-email-templates::filament-email-templates.form-fields-labels.key-update'))
+                                        ->icon('heroicon-o-arrow-path')
+                                        ->action(function (Get $get, Set $set): void {
+                                            $set('key', Str::slug($get('name')));
+                                        }),
+                                ]),
                             Select::make('language')
                                 ->label(__('md-filament-email-templates::filament-email-templates.form-fields-labels.language'))
                                 ->options(config('filament-email-templates.languages'))

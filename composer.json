@@ -1,6 +1,6 @@
 {
     "name": "maksde/filament-email-templates",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Редактор шаблонов электронных писем для Filament",
     "type": "library",
     "license": "MIT",
