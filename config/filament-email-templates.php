@@ -37,7 +37,7 @@ return [
             'sort' => 10,
             'label' => 'Шаблоны электронных писем',
             'icon' => 'heroicon-o-envelope',
-            'group' => 'Контент',
+            'group' => 'Управление',
             'cluster' => false,
             'position' => SubNavigationPosition::Top,
         ],

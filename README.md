@@ -157,4 +157,20 @@ class EmailTemplateKey extends Mailable
     }
 }
 ```
+## Добавление политики доступов при использовании пакета bezhansalleh/filament-shield
 
+Создание политики консольной командой
+
+```bash
+php artisan shield:generate --resource=EmailTemplateResource
+```
+
+Зарегистрировать поликику в `app/Providers/AppServiceProvider.php`
+
+```php
+    public function boot(): void
+    {
+        Gate::policy(EmailTemplate::class, EmailTemplatePolicy::class);
+        // ...
+    }
+```
